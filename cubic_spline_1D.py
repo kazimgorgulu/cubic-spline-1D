@@ -8,10 +8,18 @@ from scipy import linalg
 
 class CubicSpline1D:
     """
-    Creates a cubic spline interpolation function from given sample points
+    1-D Cubic spline interpolation.
     
     Interpolation function is composed of piecewise cubic functions. 
     This function is twice-differentiable.
+
+    Example Usage:
+    x_data = np.array([0., 1, 2, 4, 5, 6])
+    y_data = np.array([1., 2, 1, 0, -1, 0])
+
+    xnew = np.linspace(-1, 7, 100)
+    spline = CubicSpline1D(x_data,y_data)
+    ynew = spline(xnew)
      
     Parameters:
     -----------
@@ -28,7 +36,7 @@ class CubicSpline1D:
     def __init__(self, x_data, y_data):
         self.x = x_data
         self.y = y_data
-        self.c = self.__calc_coeff(x, y)
+        self.c = self.__calc_coeff(self.x, self.y)
 
     def __calc_coeff(self, x, y):
         """
@@ -88,27 +96,6 @@ class CubicSpline1D:
             f[k] = c[n] * xnew[k] ** 3 + c[n + 1] * xnew[k] ** 2 + c[n + 2] * xnew[k] + c[n + 3]
 
         return f
-
-
-
-if __name__ == '__main__':
-    x = np.array([0., 1, 2, 4, 5, 6])
-    y = np.array([1., 2, 1, 0, -1, 0])
-
-    
-    xnew = np.linspace(-3, 8, 100)
-    spline = CubicSpline1D(x,y)
-    ynew = spline(xnew)
-
-    import matplotlib.pyplot as plt
-
-    plt.figure()
-    plt.plot(xnew,ynew)
-
-    plt.plot(x,y,'o')
-    plt.show()
-
-
 
 
 
