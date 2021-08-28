@@ -100,9 +100,6 @@ if __name__ == '__main__':
     spline = CubicSpline1D(x,y)
     ynew = spline(xnew)
 
-    from scipy.interpolate import CubicSpline
-
-    
     import matplotlib.pyplot as plt
 
     plt.figure()
