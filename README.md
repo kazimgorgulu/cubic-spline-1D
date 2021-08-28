@@ -1,4 +1,4 @@
-# cubic-spline-1D
+## cubic-spline-1D
 
 cubic-spline-1D is an implementation of spline interpolation consisting
 of piecewise cubic polynomials. Resulting interpolation function
@@ -7,7 +7,7 @@ is twice continuously differentiable.
 Natural spline boundary conditions are used in this implementation.
 That means second derivatives are zero at the first and last data points.
 
-#How to use
+## How to use
 
 First create spline object using data points
 
